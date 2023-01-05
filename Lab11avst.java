@@ -10,7 +10,8 @@ public class Lab11avst {
     public static void main(String[] args) {
         // This main method needs additions for the 100 point version.
         Scanner input = new Scanner(System.in);
-        final int MAX = 100;
+        System.out.print("Enter the primes upper bound ===>>");
+        final int MAX = input.nextInt();
         boolean primes[];
         primes = new boolean[MAX];
         computePrimes(primes);
@@ -25,20 +26,10 @@ public class Lab11avst {
 
         }
 
-        for (int p = 4; p < primes.length; p+=2){
-            primes[p] = false;
-        }
-
-        for (int p = 6; p < primes.length; p+=3){
-            primes[p] = false;
-        }
-
-        for (int p = 10; p < primes.length; p+=5){
-            primes[p] = false;
-        }
-
-        for (int p = 14; p < primes.length; p+=7){
-            primes[p] = false;
+        for(int index = 2; index < primes.length; index++){
+            for(int k = index * 2; k < primes.length; k+=index){
+                primes[k] = false;
+            }
         }
 
 
@@ -54,13 +45,15 @@ public class Lab11avst {
 
         for (int k = 2; k < primes.length; k++) {
             if (primes[k] == true) {
-                System.out.print(k + " ");
+                    System.out.print(k + " ");
+                }
+
             }
 
         }
 
     }
-}
+
 
 
 
